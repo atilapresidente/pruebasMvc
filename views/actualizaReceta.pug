@@ -1,0 +1,27 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Actualiza recetas
+	body
+		h2 Selecciona la receta que quieres actualizar:
+		if registros
+			form(id="seleccionaRecetaForm" action="/actualizaReceta" method="get")
+				p
+					select(name="nombresRecetas" form="seleccionaRecetaForm")
+						each registro in registros
+							option(value=registro.id_receta) #{registro.nombre}
+				p
+					input(type="submit" value="Muestra receta")
+		if registros2
+			form(id="actualizaRecetaForm" action="/actualizaReceta/actualizar" method="post")
+				p
+					input(type="hidden" id="id_receta" name="id_receta" value=registros2[0].id_receta)
+					label(for="nombreReceta") Nombre:
+					input(id="nombreReceta" type="text" name="nombre" value=registros2[0].nombre)
+				p
+					label(for="descReceta") Descripción:
+					input(id="descReceta" type="text" name="descripcion" value=registros2[0].descripcion)
+				p
+					input(type="submit" value="Actualizar")
+					input(type="hidden" name="metodo" value="put")

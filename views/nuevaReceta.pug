@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title nuevaReceta
+		meta(charset="utf-8")
+	body
+	h1 Introduce tu receta
+	form(id="formlibro" action="/nuevaReceta" method="post")
+		p #{mensaje}
+		p
+			label(for="nombreForm") Nombre de la receta:
+			input(type="text" id="nombreForm" name="nombre")
+		p
+			label(for="descripcionForm") Descripción de la receta:
+		p
+			textarea(id="descripcionForm" name="descripcion" rows="4" col="40")
+		p
+			input(type="submit" id="boton1" value="Enviar receta")

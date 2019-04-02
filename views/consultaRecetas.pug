@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Consulta Recetas
+
+    body
+        each elemento in receta
+            p Receta: #{elemento.nombre}
+            p Descripción: #{elemento.descripcion}
+            p Fecha: #{elemento.fecha_publicacion}
+
